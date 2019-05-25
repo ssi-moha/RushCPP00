@@ -10,13 +10,6 @@ int main()
     srand(time(NULL));
 	initscr();
 
-    Enemy a(5, 8);
-    Enemy b(7, 9);
-    Render render;
-
-    render.display(a);
-    render.display(b);
-	
     Player player("roger");
     Game game(player);
     game.run();

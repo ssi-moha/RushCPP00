@@ -1,19 +1,23 @@
 #include "Model/Vector.hpp"
 #include "Model/Enemy.hpp"
 #include "Model/Spaceship.hpp"
+#include "Model/Object.hpp"
+#include "Model/ObjectList.hpp"
 #include <iostream>
 
+void    print(AMovingObject *elem) {
+    std::cout << *elem << std::endl;
+}
+
 int main(void) {
-    Spaceship a(7, 9);
+    Spaceship *a = new Spaceship(7, 9);
+    Enemy *b = new Enemy(15, 10);
+    ObjectList list;
 
-    std::cout << a << std::endl;
+    list.add(a);
+    list.add(b);
     
-    a.setMovementVector(Vector(2, 3));
-    a.move();
-    std::cout << a << std::endl;
-
-    a.move();
-    std::cout << a << std::endl;
+    list.forEach(&print);
 
     return 0;
 }

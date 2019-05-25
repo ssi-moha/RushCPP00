@@ -39,3 +39,13 @@ void    ObjectList::remove(AMovingObject *elem) {
         }
     }
 }
+
+void    ObjectList::forEach(void (*callbackFunction)(AMovingObject *elem)) {
+    this->_actual = this->_first;
+
+    while(this->_actual != NULL)
+    {
+        callbackFunction(this->_actual->getElem());
+        this->_actual = this->_actual->getNext();
+    }
+}

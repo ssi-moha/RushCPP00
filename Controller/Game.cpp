@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Game.hpp"
+#include "../Model/Render.hpp"
 
 Game::Game(Player const & player) : _player(player) {
     this->_movingthing = ObjectList();
@@ -25,13 +26,14 @@ Game::~Game() {
 }
 
 bool    Game::run() {
-    
-    while(this->_player.isAlive())
+    Render render;
+
+    while(1)
     {
         Vector move = this->_getInputMove();
         
         _movingthing.add(new Enemy(_randomspown(), 0));
-
+        _movingthing.forEach(&render.display);
     }
     return true;
 }
