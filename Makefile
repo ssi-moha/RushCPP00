@@ -2,22 +2,34 @@
 
 CC		=	clang++
 
-FLAG	=	-Wall -Wextra -Werror
+FLAG	=	-Wall -Wextra -Werror -lncurses
 
-NAME    =	ponymorph
+NAME    =	R-Type
 
-SRC     =   srcs/main.cpp		\
-			srcs/Sorcerer.cpp	\
-			srcs/Victim.cpp		\
-			srcs/Peon.cpp		\
-			srcs/Fish.cpp
+SRC     =   main.cpp				\
+			Controller/Game.cpp		\
+			Model/AMovingObject.cpp \
+			Model/Enemy.cpp         		\
+			Model/Object.cpp        		\
+			Model/ObjectList.cpp    		\
+			Model/Player.cpp        		\
+			Model/Render.cpp        		\
+			Model/Vector.cpp				
+
             
 OBJ     =	$(patsubst srcs/%.cpp,obj/%.o,$(SRC))
 
-INCLUDE	=	includes/Sorcerer.hpp	\
-			includes/Victim.hpp		\
-			includes/Peon.hpp		\
-			includes/Fish.hpp
+INCLUDE	=	Controller/Game.hpp		\
+			Model/AMovingObject.hpp	\
+			Model/Enemy.hpp         		\
+			Model/Object.hpp        		\
+			Model/ObjectList.hpp    		\
+			Model/Player.hpp        		\
+			Model/Render.hpp        		\
+			Model/Vector.hpp
+
+
+			
 
 all: $(NAME) 
 
