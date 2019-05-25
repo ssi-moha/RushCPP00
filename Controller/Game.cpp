@@ -6,7 +6,7 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:02:00 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 17:17:19 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 18:42:43 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 Game::Game(Player const & player) : _player(player) {
     this->_movingthing = ObjectList();
-
+    this->_player.setAlive(true);
+    
 }
 Game::Game(Game const & src) {
     *this = src;
@@ -34,22 +35,20 @@ bool    Game::run() {
         Vector move = this->_getInputMove();
         
         _movingthing.add(new Enemy(_randomspown(), 0));
-        usleep(5000);
+        usleep(10000);
         _movingthing.displayAll(render);
     }
     return true;
 }
 
 int     Game::_randomspown() const {
-    return rand() % 50;
+    return rand() % 500;
 }
 
 Vector  Game::_getInputMove() const {
-    int ch = getch();
     Vector vector;
-
-    if (ch != ERR) {
-        ungetch(ch);
+    if (this->_kbhit()) {
+        int ch = getch();
         switch(ch)
         {
             case UP  :
@@ -77,4 +76,15 @@ Game       &Game::operator=(Game const & rhs) {
         this->_movingthing = rhs._movingthing;
     }
     return *this;
+}
+
+int Game::_kbhit(void) const {
+    int ch = getch();
+
+    if (ch != ERR) {
+        ungetch(ch);
+        return 1;
+    } else {
+        return 0;
+    }
 }
