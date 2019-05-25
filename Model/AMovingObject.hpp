@@ -14,13 +14,14 @@ public:
 
     AMovingObject &  operator=(AMovingObject const & rhs);
 
-    virtual void    move(Vector const & movingVector) = 0;
+    virtual void    move( void );
     Vector          getPosition( void ) const;
+    void            setMovementVector(Vector const & movementVector);
 
 protected:
 
     Vector          _position; 
-
+    Vector          _movementVector;
 };
 
 std::ostream & operator<<(std::ostream & o, AMovingObject const & rhs);

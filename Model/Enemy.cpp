@@ -21,7 +21,3 @@ Enemy &	Enemy::operator=(Enemy const & rhs) {
 
     return *this;
 }
-
-void	Enemy::move(Vector const & movingVector) {
-    this->_position = this->_position + movingVector; 
-}

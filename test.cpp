@@ -9,9 +9,11 @@ int main(void) {
     std::cout << a << std::endl;
     std::cout << b << std::endl;
     
-    a.move(Vector(8, 5));
-    b.move(Vector(9, 7));
-
+    a.setMovementVector(Vector(8, 5));
+    b.setMovementVector(Vector(9, 7));
+    a.move();
+    b.move();
+    
     std::cout << a << std::endl;
     std::cout << b << std::endl;
 

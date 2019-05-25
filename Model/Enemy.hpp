@@ -13,8 +13,6 @@ public:
 
     Enemy &  operator=(Enemy const & rhs);
 
-    void    move(Vector const & movingVector);
-
 private:
 
     
