@@ -12,11 +12,11 @@ public:
 
     MovingObject &  operator=(MovingObject const & rhs);
 
+    //void    move();
 
 private:
 
-    int x;
-    int y;
+    Vector const & _position; 
 
 };
 
