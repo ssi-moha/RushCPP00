@@ -23,6 +23,14 @@ AMovingObject &	AMovingObject::operator=(AMovingObject const & rhs) {
     return *this;
 }
 
+bool	    AMovingObject::operator==(AMovingObject const & rhs) {
+    return(
+        this->_position == rhs.getPosition()
+        && this->_movementVector == rhs._movementVector
+        && this->_character == rhs.getCharacter()
+    );
+}
+
 AMovingObject::~AMovingObject(void) {
     
 }
@@ -32,9 +40,13 @@ std::string	AMovingObject::getCharacter(void) const {
 }
 
 
-AMovingObject *	AMovingObject::move(void) {
+bool	AMovingObject::move(void) {
+    if (this->_position == this->_position + this->_movementVector) {
+        return false;
+    }
+
     this->_position = this->_position + this->_movementVector; 
-    return NULL;
+    return true;
 }
 
 Vector	AMovingObject::getPosition(void) const {

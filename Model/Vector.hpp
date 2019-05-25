@@ -13,6 +13,7 @@ public:
 
     Vector &    operator=(Vector const & rhs);
     Vector      operator+(Vector const & rhs);
+    bool        operator==(Vector const & rhs);
 
     int         getAbsciss( void )      const;
     int         getOrdinate( void )    const;
