@@ -17,7 +17,7 @@ int main()
     render.display(a);
     render.display(b);
 	
-    Player player("roger");
+    Player player = Player("roger");
     Game game(player);
     game.run();
     

@@ -15,7 +15,10 @@ public:
 
     Player &  operator=(Player const & rhs);
 
-    bool isAlive();
+    bool        isAlive() const;
+    void        setAlive(bool alive);
+    std::string getName() const;
+    
 
 private:
     bool _alive;
