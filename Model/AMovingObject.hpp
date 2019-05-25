@@ -14,7 +14,7 @@ public:
 
     AMovingObject &  operator=(AMovingObject const & rhs);
 
-    virtual void    move( void );
+    virtual void    move( void );                                       // add _movementVector to _position
     Vector          getPosition( void ) const;
     void            setMovementVector(Vector const & movementVector);
 
