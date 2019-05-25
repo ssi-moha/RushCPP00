@@ -49,3 +49,14 @@ void    ObjectList::displayAll(Render render) {
         this->_actual = this->_actual->getNext();
     }
 }
+
+void    ObjectList::moveAll(void) {
+    this->_actual = this->_first;
+
+    while(this->_actual != NULL)
+    {
+        this->_actual->getElem()->setMovementVector(Vector(0, 1));
+        this->_actual->getElem()->move();
+        this->_actual = this->_actual->getNext();
+    }
+}

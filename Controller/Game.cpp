@@ -33,10 +33,13 @@ bool    Game::run() {
     while(1)
     {
         Vector move = this->_getInputMove();
-        
+        clear();
         _movingthing.add(new Enemy(_randomspown(), 0));
-        usleep(10000);
+        usleep(100000);
+        _movingthing.moveAll();
+        
         _movingthing.displayAll(render);
+        refresh();
     }
     return true;
 }
