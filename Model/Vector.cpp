@@ -25,6 +25,13 @@ Vector &	Vector::operator=(Vector const & rhs) {
     return *this;
 }
 
+Vector	    Vector::operator+(Vector const & rhs) {
+    _x += rhs.getAbsciss();
+    _y += rhs.getOrdinate();
+    
+    return *this;
+}
+
 int	    Vector::getAbsciss(void) const {
     return this->_x;
 }

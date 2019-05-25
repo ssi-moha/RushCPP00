@@ -12,9 +12,10 @@ public:
     ~Vector( void );
 
     Vector &    operator=(Vector const & rhs);
+    Vector      operator+(Vector const & rhs);
 
-    int        getAbsciss( void )      const;
-    int        getOrdinate( void )    const;
+    int         getAbsciss( void )      const;
+    int         getOrdinate( void )    const;
     void        setAbsciss( int new_x );
     void        setOrdinate( int new_y );
 

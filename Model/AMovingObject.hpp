@@ -12,8 +12,8 @@ public:
 
     MovingObject &  operator=(MovingObject const & rhs);
 
-    //void    move();
-
+    virtual void move(int new_x, int new_y) = 0;
+    
 private:
 
     Vector const & _position; 
