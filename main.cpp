@@ -2,9 +2,9 @@
 #include <ncurses.h>
 
 
-
 #include <ncurses.h>
 #include <unistd.h>  /* only for sleep() */
+#include "Controleur/Game.hpp"
 
 int kbhit(void)
 {
@@ -17,7 +17,7 @@ int kbhit(void)
         return 0;
     }
 }
-
+/*
 int main(void)
 {
     initscr();
@@ -38,8 +38,8 @@ int main(void)
         }
     }
 }
+*/
 
-/*
 int main(void)
 {
     int x,y;
@@ -57,30 +57,40 @@ int main(void)
     printw("x");
     curs_set(0);
     while (1) {
+        
         if (kbhit()) {
+            clear();
             input = getch();
-            if(input == 119)
-            {
-                x -= 1;  
-            } 
-            if(input == 115)
-            {
-                x += 1;
-            } 
-            if(input == 97)
+            if(input == UP)
             {
                 y -= 1;
+                move(y,x);
+                printw("up");
             } 
-            if(input == 100)
+            if(input == DOWN)
             {
                 y += 1;
+                move(y,x);
+                printw("down");
+            } 
+            if(input == LEFT)
+            {
+                x -= 1;
+                move(y,x);
+                printw("left");
+            } 
+            if(input == RIGHT)
+            {
+                move(y,x);
+                printw("rigth");
+                x += 1;
             }
             else
             {
                 
             }
-            clear();
-            move(x,y);
+            
+            move(y,x);
             
             printw("x");
             refresh();
@@ -89,4 +99,3 @@ int main(void)
         }
     }
 }
-*/

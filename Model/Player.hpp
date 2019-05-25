@@ -1,7 +1,8 @@
 #ifndef PLAYER_H
 # define PLAYER_H
 
-# include<iostream>
+# include <iostream>
+
 
 class Player {
 
@@ -20,6 +21,7 @@ private:
     Player( void );
     bool alive;
     std::string name;
+    //Spaceship
 };
 
 #endif

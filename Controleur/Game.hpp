@@ -6,15 +6,22 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:01:57 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 12:13:51 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 12:56:47 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
+#include <ncurses.h>
 #include "../Model/Player.hpp"
+#include "../Model/Vector.hpp"
 
+
+#define UP 119
+#define DOWN 115
+#define LEFT 97
+#define RIGHT 100
 
 class Game {
 
@@ -29,8 +36,8 @@ public:
     bool run();
 
 private:
-    Player player;
-Vector  getInput() const;
+    Player  player;
+    Vector  getInputMove() const;
     
 
 };
