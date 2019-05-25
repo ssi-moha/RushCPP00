@@ -14,10 +14,10 @@ public:
 
     AMovingObject &  operator=(AMovingObject const & rhs);
 
-    virtual void    move( void );                                       // add _movementVector to _position
-    Vector          getPosition( void ) const;
-    std::string     getCharacter( void ) const;
-    void            setMovementVector(Vector const & movementVector);
+    virtual AMovingObject *     move( void );                                       // add _movementVector to _position
+    Vector                      getPosition( void ) const;
+    std::string                 getCharacter( void ) const;
+    void                        setMovementVector(Vector const & movementVector);
 
 protected:
 
