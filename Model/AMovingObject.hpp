@@ -12,7 +12,8 @@ public:
     AMovingObject(AMovingObject const & src);
     ~AMovingObject( void );
 
-    AMovingObject &  operator=(AMovingObject const & rhs);
+    AMovingObject &     operator=(AMovingObject const & rhs);
+    bool                operator==(AMovingObject const & rhs);
 
     virtual bool                move( void );                                       // add _movementVector to _position
     Vector                      getPosition( void ) const;
