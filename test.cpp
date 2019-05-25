@@ -1,9 +1,10 @@
 #include "Model/Vector.hpp"
+#include "Model/AMovingObject.hpp"
 #include <iostream>
 
 int main(void) {
-    Vector a(5, 8);
-    Vector b(7, 9);
+    AMovingObject a(5, 8);
+    AMovingObject b(7, 9);
 
     std::cout << a << std::endl;
     std::cout << b << std::endl;

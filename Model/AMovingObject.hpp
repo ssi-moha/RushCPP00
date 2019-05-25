@@ -1,23 +1,28 @@
-#ifndef MOVINGOBJECT_H
-# define MOVINGOBJECT_H
+#ifndef AMOVINGOBJECT_H
+# define AMOVINGOBJECT_H
+# include <sstream>
+# include "Vector.hpp"
 
-class MovingObject {
+class AMovingObject {
 
 public:
 
-    MovingObject( void );
-    MovingObject(int x, int y);
-    MovingObject(MovingObject const & src);
-    ~MovingObject( void );
+    AMovingObject( void );
+    AMovingObject(int x, int y);
+    AMovingObject(AMovingObject const & src);
+    ~AMovingObject( void );
 
-    MovingObject &  operator=(MovingObject const & rhs);
+    AMovingObject &  operator=(AMovingObject const & rhs);
 
-    virtual void move(int new_x, int new_y) = 0;
-    
+    virtual void    move(int new_x, int new_y) = 0;
+    Vector          getPosition( void ) const;
+
 private:
 
-    Vector const & _position; 
+    Vector          _position; 
 
 };
+
+std::ostream & operator<<(std::ostream & o, AMovingObject const & rhs);
 
 #endif
