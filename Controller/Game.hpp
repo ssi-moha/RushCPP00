@@ -6,7 +6,7 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:01:57 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 17:12:52 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 18:35:35 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ private:
 
     Vector  _getInputMove() const;
     int     _randomspown() const;
+    int     _kbhit(void) const;
     
 
 };
