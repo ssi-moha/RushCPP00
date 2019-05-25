@@ -30,10 +30,7 @@ bool	Vector::operator==(Vector const & rhs) {
 }
 
 Vector	    Vector::operator+(Vector const & rhs) {
-    _x += rhs.getAbsciss();
-    _y += rhs.getOrdinate();
-    
-    return *this;
+    return Vector(_x + rhs.getAbsciss(), _y + rhs.getOrdinate());
 }
 
 int	    Vector::getAbsciss(void) const {
