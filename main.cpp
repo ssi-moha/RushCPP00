@@ -1,25 +1,18 @@
 #include <iostream>
 #include <ncurses.h>
-
-
+#include "Model/Enemy.hpp"
+#include "Model/Render.hpp"
 
 int main()
 {	
 	initscr();
 	
-    int x = 0;
-    int y = 0;
+    Enemy a(5, 8);
+    Enemy b(7, 9);
+    Render render;
 
-    move(x, y);
-
-    printw("Hello World!!!");
-
-    int c = getch();
-    refresh();
-
-    move(x, y);
-    printw("%d", c);
-	refresh();
+    render.display(a);
+    render.display(b);
 
 	getch();
 	endwin();
