@@ -15,7 +15,7 @@ Vector::Vector(Vector const & src) {
 }
 
 Vector::~Vector(void) {
-    std::cout << "Vector destructor called." << std::endl;    
+        
 }
 
 Vector &	Vector::operator=(Vector const & rhs) {

@@ -14,10 +14,10 @@ public:
 
     AMovingObject &  operator=(AMovingObject const & rhs);
 
-    virtual void    move(int new_x, int new_y) = 0;
+    virtual void    move(Vector const & movingVector) = 0;
     Vector          getPosition( void ) const;
 
-private:
+protected:
 
     Vector          _position; 
 
