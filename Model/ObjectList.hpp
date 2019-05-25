@@ -18,7 +18,7 @@ public:
 
     void    remove(AMovingObject *rElem);
     void    add(AMovingObject *elem);
-    void    forEach(void (*callbackFunction)(AMovingObject *elem));
+    void    displayAll(Render render);
 
 private:
     Object   *_first;

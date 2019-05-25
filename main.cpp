@@ -7,9 +7,9 @@
 
 int main()
 {	
+
     srand(time(NULL));
 	initscr();
-
     Player player("roger");
     Game game(player);
     game.run();

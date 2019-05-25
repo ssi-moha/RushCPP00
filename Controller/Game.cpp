@@ -12,6 +12,7 @@
 
 #include "Game.hpp"
 #include "../Model/Render.hpp"
+#include <unistd.h>
 
 Game::Game(Player const & player) : _player(player) {
     this->_movingthing = ObjectList();
@@ -33,7 +34,8 @@ bool    Game::run() {
         Vector move = this->_getInputMove();
         
         _movingthing.add(new Enemy(_randomspown(), 0));
-        _movingthing.forEach(&render.display);
+        usleep(5000);
+        _movingthing.displayAll(render);
     }
     return true;
 }
