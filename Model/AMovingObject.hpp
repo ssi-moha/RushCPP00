@@ -14,7 +14,7 @@ public:
 
     AMovingObject &  operator=(AMovingObject const & rhs);
 
-    virtual AMovingObject *     move( void );                                       // add _movementVector to _position
+    virtual bool                move( void );                                       // add _movementVector to _position
     Vector                      getPosition( void ) const;
     std::string                 getCharacter( void ) const;
     void                        setMovementVector(Vector const & movementVector);

@@ -32,9 +32,12 @@ std::string	AMovingObject::getCharacter(void) const {
 }
 
 
-AMovingObject *	AMovingObject::move(void) {
+bool	AMovingObject::move(void) {
+    if (this->_position == this->_position + this->_movementVector) {
+        return false;
+    }
     this->_position = this->_position + this->_movementVector; 
-    return NULL;
+    return true;
 }
 
 Vector	AMovingObject::getPosition(void) const {
