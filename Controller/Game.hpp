@@ -6,7 +6,7 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:01:57 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 18:35:35 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 18:50:45 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <ncurses.h>
 #include "../Model/Player.hpp"
+#include "../Model/Spaceship.hpp"
 #include "../Model/Vector.hpp"
 #include "../Model/Enemy.hpp"
 #include "../Model/ObjectList.hpp"

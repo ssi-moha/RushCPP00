@@ -14,7 +14,8 @@ SRC     =   main.cpp				\
 			Model/ObjectList.cpp    		\
 			Model/Player.cpp        		\
 			Model/Render.cpp        		\
-			Model/Vector.cpp				
+			Model/Vector.cpp				\
+			Model/Spaceship.cpp
 
             
 OBJ     =	$(patsubst srcs/%.cpp,obj/%.o,$(SRC))
@@ -26,7 +27,8 @@ INCLUDE	=	Controller/Game.hpp		\
 			Model/ObjectList.hpp    		\
 			Model/Player.hpp        		\
 			Model/Render.hpp        		\
-			Model/Vector.hpp
+			Model/Vector.hpp				\
+			Model/Spaceship.hpp
 
 
 			

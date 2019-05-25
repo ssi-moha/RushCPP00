@@ -6,7 +6,7 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:02:00 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 18:42:43 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 19:07:22 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,23 @@ Game::~Game() {
 
 bool    Game::run() {
     Render render;
-
+    Spaceship spaceship(100,100);
     while(1)
     {
+        clear();
         Vector move = this->_getInputMove();
-        
+        //spaceship.setMovementVector(move);
         _movingthing.add(new Enemy(_randomspown(), 0));
-        usleep(10000);
+        usleep(100000);
         _movingthing.displayAll(render);
+        //render.display(spaceship);
+        refresh();
     }
     return true;
 }
 
 int     Game::_randomspown() const {
-    return rand() % 500;
+    return rand() % 200;
 }
 
 Vector  Game::_getInputMove() const {
