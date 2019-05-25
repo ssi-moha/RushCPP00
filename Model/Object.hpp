@@ -21,8 +21,6 @@ private:
     AMovingObject *_elem;
     Object *_next;
     
-    
-
 };
 
 #endif

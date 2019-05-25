@@ -3,6 +3,7 @@
 
 # include "Object.hpp"
 # include "AMovingObject.hpp"
+# include "Render.hpp"
 
 
 class ObjectList {
@@ -17,7 +18,7 @@ public:
 
     void    remove(AMovingObject *rElem);
     void    add(AMovingObject *elem);
-    void    updateAll();
+    void    displayAll(Render render);
 
 private:
     Object   *_first;

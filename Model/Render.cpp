@@ -9,9 +9,17 @@ Render::~Render(void) {
     
 }
 
+Render::Render(Render const & src) {
+    *this = src;
+}
+
 void	Render::display(AMovingObject const & objectToDisplay) {
     Vector  printPosition(objectToDisplay.getPosition());
     
     mvprintw(printPosition.getOrdinate(), printPosition.getAbsciss(), objectToDisplay.getCharacter().c_str());
-    refresh();
+}
+
+Render &	Render::operator=(Render const & rhs) {
+    (void)rhs;
+    return *this;
 }
