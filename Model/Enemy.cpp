@@ -4,7 +4,7 @@ Enemy::Enemy(void) {
     
 }
 
-Enemy::Enemy(int x, int y) : AMovingObject(x, y) {
+Enemy::Enemy(int x, int y) : AMovingObject(x, y, "V") {
     
 }
 
