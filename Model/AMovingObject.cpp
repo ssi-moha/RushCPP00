@@ -6,7 +6,10 @@ AMovingObject::AMovingObject(void) {
 
 }
 
-AMovingObject::AMovingObject(int x, int y) : _position(Vector(x, y)), _movementVector(0, 0) {
+AMovingObject::AMovingObject(int x, int y, std::string character)
+:   _position(Vector(x, y)),
+    _movementVector(0, 0),
+    _character(character) {
     
 }
 
@@ -20,12 +23,30 @@ AMovingObject &	AMovingObject::operator=(AMovingObject const & rhs) {
     return *this;
 }
 
+bool	    AMovingObject::operator==(AMovingObject const & rhs) {
+    return(
+        this->_position == rhs.getPosition()
+        && this->_movementVector == rhs._movementVector
+        && this->_character == rhs.getCharacter()
+    );
+}
+
 AMovingObject::~AMovingObject(void) {
     
 }
 
-void	AMovingObject::move(void) {
+std::string	AMovingObject::getCharacter(void) const {
+    return this->_character;
+}
+
+
+bool	AMovingObject::move(void) {
+    if (this->_position == this->_position + this->_movementVector) {
+        return false;
+    }
+
     this->_position = this->_position + this->_movementVector; 
+    return true;
 }
 
 Vector	AMovingObject::getPosition(void) const {
@@ -37,6 +58,6 @@ void	AMovingObject::setMovementVector(Vector const & movementVector) {
 }
 
 std::ostream & operator<<(std::ostream & o, AMovingObject const & rhs) {
-    o << rhs.getPosition();
+    o << rhs.getPosition() << "character: " << rhs.getCharacter();
     return o;
 }
