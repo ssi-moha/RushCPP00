@@ -6,13 +6,13 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:02:00 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 13:07:10 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 13:52:50 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Game.hpp"
 
-Game::Game(Player player) : player(player) {
+Game::Game(Player player) : _player(player) {
     
 }
 
@@ -22,16 +22,16 @@ Game::~Game() {
 
 bool    Game::run() {
     
-    while(this->player.isAlive())
+    while(this->_player.isAlive())
     {
-        Vector move = this->getInputMove();
+        Vector move = this->_getInputMove();
         
         
     }
     return true;
 }
 
-Vector  Game::getInputMove() const {
+Vector  Game::_getInputMove() const {
     int ch = getch();
     Vector vector;
 

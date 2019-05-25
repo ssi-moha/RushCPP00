@@ -19,8 +19,8 @@ public:
 
 private:
     Player( void );
-    bool alive;
-    std::string name;
+    bool _alive;
+    std::string _name;
     //Spaceship
 };
 

@@ -6,7 +6,7 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:01:57 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 12:56:47 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 13:51:28 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <ncurses.h>
 #include "../Model/Player.hpp"
 #include "../Model/Vector.hpp"
+
 
 
 #define UP 119
@@ -36,8 +37,8 @@ public:
     bool run();
 
 private:
-    Player  player;
-    Vector  getInputMove() const;
+    Player  _player;
+    Vector  _getInputMove() const;
     
 
 };
