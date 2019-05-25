@@ -8,8 +8,8 @@ class Player {
 
 public:
 
-    
-    Player(std::string name);
+    Player( void );
+    Player(std::string const & name);
     Player(Player const & src);
     ~Player( void );
 
@@ -18,7 +18,6 @@ public:
     bool isAlive();
 
 private:
-    Player( void );
     bool _alive;
     std::string _name;
     //Spaceship

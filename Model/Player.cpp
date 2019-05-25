@@ -6,14 +6,20 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:01:53 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 13:52:25 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 17:14:03 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Player.hpp"
-
-Player::Player(std::string name) : _name(name), _alive(true) {
+Player::Player(void) {
+       
+}
+Player::Player(std::string const & name) : _alive(true), _name(name) {
     
+}
+
+Player::Player(Player const & src) {
+    *this = src;
 }
 
 Player::~Player() {

@@ -6,7 +6,7 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:01:57 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 14:06:09 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 17:12:52 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "../Model/Player.hpp"
 #include "../Model/Vector.hpp"
 #include "../Model/Enemy.hpp"
-
+#include "../Model/ObjectList.hpp"
 
 
 #define UP 119
@@ -29,7 +29,7 @@ class Game {
 
 public:
 
-    Game(Player player);
+    Game(Player const & player);
     Game(Game const & src);
     ~Game( void );
 
@@ -38,10 +38,12 @@ public:
     bool run();
 
 private:
-    Player  _player;
-    Enemy   _enemies;
+    Game(void);
+    Player      _player;
+    ObjectList  _movingthing;
 
     Vector  _getInputMove() const;
+    int     _randomspown() const;
     
 
 };

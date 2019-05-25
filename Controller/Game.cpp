@@ -6,14 +6,18 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:02:00 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 13:52:50 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 17:17:19 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Game.hpp"
 
-Game::Game(Player player) : _player(player) {
-    
+Game::Game(Player const & player) : _player(player) {
+    this->_movingthing = ObjectList();
+
+}
+Game::Game(Game const & src) {
+    *this = src;
 }
 
 Game::~Game() {
@@ -26,9 +30,14 @@ bool    Game::run() {
     {
         Vector move = this->_getInputMove();
         
-        
+        _movingthing.add(new Enemy(_randomspown(), 0));
+
     }
     return true;
+}
+
+int     Game::_randomspown() const {
+    return rand() % 50;
 }
 
 Vector  Game::_getInputMove() const {
@@ -55,4 +64,13 @@ Vector  Game::_getInputMove() const {
         }
     } 
     return vector;
+}
+
+Game       &Game::operator=(Game const & rhs) {
+    if ( this != &rhs )
+    {
+        this->_player = rhs._player;
+        this->_movingthing = rhs._movingthing;
+    }
+    return *this;
 }
