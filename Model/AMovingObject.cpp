@@ -23,11 +23,11 @@ AMovingObject &	AMovingObject::operator=(AMovingObject const & rhs) {
     return *this;
 }
 
-bool	    AMovingObject::operator=(AMovingObject const & rhs) {
+bool	    AMovingObject::operator==(AMovingObject const & rhs) {
     return(
         this->_position == rhs.getPosition()
-        && this->_movementVector == rhs._movementVector()
-        && this->_character == rhs._character()
+        && this->_movementVector == rhs._movementVector
+        && this->_character == rhs.getCharacter()
     );
 }
 
