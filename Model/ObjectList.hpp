@@ -19,6 +19,7 @@ public:
     void    remove(AMovingObject *rElem);
     void    add(AMovingObject *elem);
     void    displayAll(Render render);
+    void    moveAll( void );
 
 private:
     Object   *_first;

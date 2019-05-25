@@ -41,7 +41,6 @@ std::string	AMovingObject::getCharacter(void) const {
 
 
 bool	AMovingObject::move(void) {
-    std::cout << "AMoving" << std::endl;
     if (this->_position == this->_position + this->_movementVector) {
         return false;
     }

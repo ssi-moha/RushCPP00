@@ -10,6 +10,11 @@ int main()
 
     srand(time(NULL));
 	initscr();
+    cbreak();
+    noecho();
+    nodelay(stdscr, TRUE);
+
+    scrollok(stdscr, TRUE);
     Player player("roger");
     Game game(player);
     game.run();
