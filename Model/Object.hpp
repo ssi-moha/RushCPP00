@@ -1,5 +1,5 @@
-#ifndef OBJECTLIST_H
-# define OBJECTLIST_H
+#ifndef OBJECT_H
+# define OBJECT_H
 
 # include "AMovingObject.hpp"
 class Object {
@@ -7,17 +7,20 @@ class Object {
 public:
 
     
-    Object(AMovingObject *elem);
+    Object(AMovingObject *elem, Object *next);
     Object(Object const & src);
     ~Object( void );
 
     Object &  operator=(Object const & rhs);
 
+    Object  *getNext();
+    AMovingObject  *getElem();
 
 private:
     Object( void );
     AMovingObject *_elem;
-    AMovingObject *next;
+    Object *_next;
+    
     
 
 };
