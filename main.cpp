@@ -4,7 +4,7 @@
 
 #include <ncurses.h>
 #include <unistd.h>  /* only for sleep() */
-#include "Controleur/Game.hpp"
+#include "Controller/Game.hpp"
 
 /*
 int kbhit(void)

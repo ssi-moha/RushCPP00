@@ -6,7 +6,7 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:01:57 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 13:51:28 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 14:06:09 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <ncurses.h>
 #include "../Model/Player.hpp"
 #include "../Model/Vector.hpp"
+#include "../Model/Enemy.hpp"
 
 
 
@@ -38,6 +39,8 @@ public:
 
 private:
     Player  _player;
+    Enemy   _enemies;
+
     Vector  _getInputMove() const;
     
 
