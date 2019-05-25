@@ -23,8 +23,7 @@ bool	Spaceship::move(void) {
     }
 
     this->_position = this->_position + this->_movementVector;
-    this->setMovementVector(Vector(0, 0));
-    std::cout << "OK" << std::endl;
+    this->_movementVector = Vector(0, 0);
 
     return true;
 }

@@ -13,7 +13,7 @@ public:
 
     Spaceship &  operator=(Spaceship const & rhs);
 
-    virtual bool        move(void);           
+    virtual bool        move(void);
 
 private:
 
