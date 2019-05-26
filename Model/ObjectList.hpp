@@ -2,8 +2,8 @@
 # define OBJECTLIST_H
 
 # include "Object.hpp"
-# include "AMovingObject.hpp"
-# include "Render.hpp"
+# include "MovingObject/AMovingObject.hpp"
+# include "../Vue/Render.hpp"
 
 
 class ObjectList {

@@ -16,7 +16,7 @@
 #include <ncurses.h>
 #include "../Model/Player.hpp"
 #include "../Model/Vector.hpp"
-#include "../Model/Enemy.hpp"
+#include "../Model/MovingObject/Enemy.hpp"
 #include "../Model/ObjectList.hpp"
 
 

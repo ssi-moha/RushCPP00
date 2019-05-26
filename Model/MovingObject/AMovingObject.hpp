@@ -1,7 +1,7 @@
 #ifndef AMOVINGOBJECT_H
 # define AMOVINGOBJECT_H
 # include <sstream>
-# include "Vector.hpp"
+# include "../Vector.hpp"
 
 class AMovingObject {
 
