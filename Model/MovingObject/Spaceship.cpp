@@ -41,5 +41,5 @@ Spaceship &	Spaceship::operator=(Spaceship const & rhs) {
 
 void	Spaceship::shoot(ObjectList *list) {
        
-       list->add(new Rocket(_position.getAbsciss(), _position.getOrdinate()));
+       list->add(new Rocket(_position.getAbsciss(), _position.getOrdinate() - 1));
 }

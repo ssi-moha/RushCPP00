@@ -19,7 +19,8 @@
 
 
 int     randomspown() {
-    return rand() % WIDTH;
+    //return rand() % WIDTH;
+    return WIDTH / 2;
 }
 
 int kbhit(void)

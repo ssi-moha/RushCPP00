@@ -16,7 +16,7 @@ public:
 
 private:
 
-
+    bool    hit(Object *elem, ObjectList *enemyList );
 
 };
 

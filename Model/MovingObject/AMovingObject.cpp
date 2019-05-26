@@ -64,12 +64,10 @@ void	AMovingObject::setMovementVector(Vector const & movementVector) {
 
 bool	AMovingObject::collision(AMovingObject const & object) {
     Vector vector(0, 1);
-    Vector vector2(0, 2);
 
     return (
             this->getPosition() == object.getPosition()
-            || this->getPosition() == (object.getPosition() + vector)
-            || this->getPosition() == (object.getPosition() + vector2)
+            //|| this->getPosition() == (object.getPosition() + vector)
         );
 }
 
