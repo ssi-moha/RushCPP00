@@ -47,6 +47,7 @@ void    ObjectList::remove(AMovingObject *elem) {
         
         if (this->_actual->getElem() == elem)
         {
+            
             if (temp != NULL)
                 temp->setNext(this->_actual->getNext());
             else
@@ -76,22 +77,29 @@ void    ObjectList::displayAll(Render render) {
 
 bool    ObjectList::moveAll(Spaceship spaceship) {
     this->_actual = this->_first;
-    AMovingObject *currentElement;
 
     while(this->_actual != NULL)
     {
-        currentElement = this->_actual->getElem();
-        if (!currentElement->getCharacter().compare("V") || !currentElement->getCharacter().compare("*")) {
-            currentElement->setMovementVector(Vector(0, 1));
-            if (spaceship.collision(*(currentElement)) == true)
-                return false;
-        }
         
-        currentElement->move();
+        if (spaceship.collision(*(this->_actual->getElem())) == true)
+        {
+            this->remove(this->_actual->getElem());
+            return false;
+        }    
+        if (this->_actual->getElem()->getCharacter() == "V")
+        {
+            this->_actual->getElem()->setMovementVectorRand(spaceship);
+        }   
+        else if (this->_actual->getElem()->getCharacter() == "*")
+        {
+            this->_actual->getElem()->setMovementVector(Vector(0,1));
+        }
+            
+        this->_actual->getElem()->move();
 
-        if (currentElement->isOut() && currentElement->getCharacter() != "")
+        if (this->_actual->getElem()->isOut() && this->_actual->getElem()->getCharacter() != "")
         {     
-            this->remove(currentElement);
+            this->remove(this->_actual->getElem());
         }
 
         this->_actual = this->_actual->getNext();

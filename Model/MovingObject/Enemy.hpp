@@ -1,6 +1,9 @@
 #ifndef ENEMY_H
 # define ENEMY_H
 # include "AMovingObject.hpp"
+# include "Spaceship.hpp"
+
+class Spaceship;
 
 class Enemy: public AMovingObject {
 
@@ -13,6 +16,7 @@ public:
 
     Enemy &  operator=(Enemy const & rhs);
 
+    
 private:
 
     

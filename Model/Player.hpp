@@ -20,11 +20,14 @@ public:
     std::string getName() const;
     void        setScore(int score);
     int         getScore( void ) const;
+    void        setLive(int live);
+    int         getLive( void ) const;
 
 private:
     bool _alive;
     std::string _name;
     int         _score;
+    int         _live;
 
 };
 

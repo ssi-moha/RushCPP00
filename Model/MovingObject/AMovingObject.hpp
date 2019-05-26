@@ -4,6 +4,8 @@
 # include "../Vector.hpp"
 # include "../ObjectList.hpp"
 
+
+
 #define WIDTH 150
 #define HEIGHT 50
 
@@ -24,7 +26,7 @@ public:
     std::string                 getCharacter( void ) const;
     void                        setMovementVector(Vector const & movementVector);
     bool                        collision(AMovingObject const & enemy);
-    
+    void                        setMovementVectorRand(AMovingObject spaceship);
     bool                        isOut(void);                        
 
 protected:
