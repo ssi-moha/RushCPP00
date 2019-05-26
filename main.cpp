@@ -80,6 +80,7 @@ int main()
     Render render;
     Vector move;
     ObjectList enemyList;
+    ObjectList meteorList;
     RocketList rocketList;
     Spaceship spaceship(WIDTH / 2, HEIGHT - 2);
     while(1)
@@ -95,11 +96,10 @@ int main()
             getch();
         }
         erase();
-        if ((rand() % 10) >= 1) {
-            enemyList.add(new Enemy(randomspown(), 0));
-        } else {
-            enemyList.add(new Meteor(randomspown(), 0));
+        if ((rand() % 10) <= 1) {
+            meteorList.add(new Meteor(randomspown(), 0));
         }
+        enemyList.add(new Enemy(randomspown(), 0));
         enemyList.add(&spaceship);
 
         napms(100);
@@ -107,10 +107,11 @@ int main()
         if (!rocketList.moveAll(&enemyList)) {
             player.setScore(player.getScore() + 5);
         }
-        if (!enemyList.moveAll(spaceship)) {
+        if (!enemyList.moveAll(spaceship) || !meteorList.moveAll(spaceship)) {
             break;
         }
         
+        meteorList.displayAll(render);
         enemyList.displayAll(render);
         rocketList.displayAll(render);
         mvprintw(WIDTH / 4, HEIGHT / 2, "Name: %s\nScore: %d", player.getName().c_str(), player.getScore());
