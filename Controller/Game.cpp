@@ -6,12 +6,13 @@
 /*   By: avinas <avinas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 11:02:00 by avinas            #+#    #+#             */
-/*   Updated: 2019/05/25 18:42:43 by avinas           ###   ########.fr       */
+/*   Updated: 2019/05/25 20:20:02 by avinas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Game.hpp"
 #include "../Model/Render.hpp"
+#include "../Model/Spaceship.hpp"
 #include <unistd.h>
 
 Game::Game(Player const & player) : _player(player) {
@@ -29,29 +30,35 @@ Game::~Game() {
 
 bool    Game::run() {
     Render render;
-
+    Spaceship spaceship(50,110);
     while(1)
     {
         Vector move = this->_getInputMove();
-        clear();
+        erase();
         _movingthing.add(new Enemy(_randomspown(), 0));
         usleep(100000);
         _movingthing.moveAll();
         
         _movingthing.displayAll(render);
+        spaceship.move();
+        render.display(spaceship);
+        mvprintw(63, 110, "x: %d      y: %d", spaceship.getPosition().getOrdinate(), spaceship.getPosition().getAbsciss());
+        
         refresh();
     }
     return true;
 }
 
 int     Game::_randomspown() const {
-    return rand() % 500;
+    return rand() % 220;
 }
 
 Vector  Game::_getInputMove() const {
     Vector vector;
     if (this->_kbhit()) {
+        mvprintw(60, 110, "roger");
         int ch = getch();
+        
         switch(ch)
         {
             case UP  :
@@ -82,8 +89,8 @@ Game       &Game::operator=(Game const & rhs) {
 }
 
 int Game::_kbhit(void) const {
+    
     int ch = getch();
-
     if (ch != ERR) {
         ungetch(ch);
         return 1;

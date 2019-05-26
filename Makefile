@@ -6,27 +6,29 @@ FLAG	=	-Wall -Wextra -Werror -lncurses
 
 NAME    =	R-Type
 
-SRC     =   main.cpp				\
-			Controller/Game.cpp		\
-			Model/AMovingObject.cpp \
+SRC     =   main.cpp						\
+			Controller/Game.cpp				\
+			Model/AMovingObject.cpp 		\
 			Model/Enemy.cpp         		\
 			Model/Object.cpp        		\
 			Model/ObjectList.cpp    		\
 			Model/Player.cpp        		\
 			Model/Render.cpp        		\
-			Model/Vector.cpp				
+			Model/Vector.cpp				\
+			Model/Spaceship.cpp
 
             
 OBJ     =	$(patsubst srcs/%.cpp,obj/%.o,$(SRC))
 
-INCLUDE	=	Controller/Game.hpp		\
-			Model/AMovingObject.hpp	\
+INCLUDE	=	Controller/Game.hpp				\
+			Model/AMovingObject.hpp			\
 			Model/Enemy.hpp         		\
 			Model/Object.hpp        		\
 			Model/ObjectList.hpp    		\
 			Model/Player.hpp        		\
 			Model/Render.hpp        		\
-			Model/Vector.hpp
+			Model/Vector.hpp				\
+			Model/Spaceship.hpp
 
 
 			

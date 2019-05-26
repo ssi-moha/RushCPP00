@@ -13,7 +13,9 @@ int main()
     cbreak();
     noecho();
     nodelay(stdscr, TRUE);
+    //keypad();
 
+    //curs_set(0);
     scrollok(stdscr, TRUE);
     Player player("roger");
     Game game(player);

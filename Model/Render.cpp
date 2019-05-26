@@ -17,6 +17,7 @@ void	Render::display(AMovingObject const & objectToDisplay) {
     Vector  printPosition(objectToDisplay.getPosition());
     
     mvprintw(printPosition.getOrdinate(), printPosition.getAbsciss(), objectToDisplay.getCharacter().c_str());
+    
 }
 
 Render &	Render::operator=(Render const & rhs) {
