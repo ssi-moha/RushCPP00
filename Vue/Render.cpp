@@ -1,4 +1,5 @@
 # include "Render.hpp"
+# include "../Model/MovingObject/AMovingObject.hpp"
 # include <ncurses.h>
 
 Render::Render(void) {

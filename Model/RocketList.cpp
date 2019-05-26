@@ -1,4 +1,6 @@
 #include "RocketList.hpp"
+#include "MovingObject/AMovingObject.hpp"
+#include "MovingObject/Spaceship.hpp"
 #include "Object.hpp"
 #include <ncurses.h>
 

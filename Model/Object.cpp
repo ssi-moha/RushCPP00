@@ -1,4 +1,5 @@
 #include "Object.hpp"
+# include "MovingObject/AMovingObject.hpp"
 
 Object::Object(AMovingObject *elem, Object *next) : _elem(elem), _next(next) {
     

@@ -1,4 +1,6 @@
 #include "ObjectList.hpp"
+#include "MovingObject/Spaceship.hpp"
+#include "MovingObject/AMovingObject.hpp"
 #include <ncurses.h>
 
 ObjectList::ObjectList() : _first(NULL), _actual(NULL){

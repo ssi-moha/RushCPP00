@@ -25,7 +25,7 @@ public:
     void                        setMovementVector(Vector const & movementVector);
     bool                        collision(AMovingObject const & enemy);
     
-    bool                        isOut() const;                        
+    bool                        isOut(void);                        
 
 protected:
     Vector          _position; 

@@ -2,10 +2,11 @@
 # define OBJECTLIST_H
 
 # include "Object.hpp"
-# include "MovingObject/AMovingObject.hpp"
-# include "MovingObject/Spaceship.hpp"
 # include "../Vue/Render.hpp"
 
+
+class AMovingObject;
+class Spaceship;
 
 class ObjectList {
 

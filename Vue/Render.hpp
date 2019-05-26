@@ -1,6 +1,8 @@
 #ifndef RENDER_H
 # define RENDER_H
-# include "../Model/MovingObject/AMovingObject.hpp"
+
+
+class AMovingObject;
 
 class Render {
 

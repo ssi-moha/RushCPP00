@@ -1,7 +1,8 @@
 #ifndef OBJECT_H
 # define OBJECT_H
 
-# include "MovingObject/AMovingObject.hpp"
+class AMovingObject;
+
 class Object {
 
 public:
