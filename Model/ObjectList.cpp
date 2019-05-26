@@ -63,7 +63,6 @@ void    ObjectList::moveAll(void) {
         if (!this->_actual->getElem()->getCharacter().compare("V")) {
             this->_actual->getElem()->setMovementVector(Vector(0, 1));
         } else if (!this->_actual->getElem()->getCharacter().compare("|")) {
-            mvprintw(10, 30, "r");
             this->_actual->getElem()->setMovementVector(Vector(0, -1));
         }
         this->_actual->getElem()->move();

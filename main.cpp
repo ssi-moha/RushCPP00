@@ -80,7 +80,6 @@ int main()
         {   
             move = getInputMove(getch());
             if (move.getAbsciss() == SPACE) {
-                mvprintw(10, 30, "space");
                 spaceship.shoot(&movingthing);
             } else {
                 spaceship.setMovementVector(move);
