@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "Player.hpp"
-Player::Player(void) : _alive(true){
+Player::Player(void) : _alive(true), _score(0) {
        this->_alive = true;
 }
-Player::Player(std::string const & name) : _alive(true), _name(name) {
+Player::Player(std::string const & name) : _alive(true), _name(name), _score(0) {
     this->_alive = true;
 }
 
@@ -24,6 +24,14 @@ Player::Player(Player const & src) {
 
 Player::~Player() {
     
+}
+
+void	Player::setScore(int score) {
+    _score = score;
+}
+
+int	Player::getScore(void) const {
+    return this->_score;
 }
 
 Player       &Player::operator=(Player const & rhs) {
