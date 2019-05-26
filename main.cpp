@@ -19,8 +19,7 @@
 
 
 int     randomspown() {
-    //return rand() % WIDTH;
-    return WIDTH / 2;
+    return rand() % WIDTH;
 }
 
 int kbhit(void)
@@ -31,6 +30,7 @@ int kbhit(void)
         ungetch(ch);
         return 1;
     } else {
+        flushinp();
         return 0;
     }
 }
@@ -98,14 +98,16 @@ int main()
         enemyList.add(&spaceship);
 
         napms(100);
-        rocketList.moveAll(&enemyList);
+        if (!rocketList.moveAll(&enemyList)) {
+            player.setScore(player.getScore() + 5);
+        }
         if (!enemyList.moveAll(spaceship)) {
             break;
         }
         
         enemyList.displayAll(render);
         rocketList.displayAll(render);
-        
+        mvprintw(WIDTH / 4, HEIGHT / 2, "Name: %s\nScore: %d", player.getName().c_str(), player.getScore());
         refresh();
     }
     endwin();
