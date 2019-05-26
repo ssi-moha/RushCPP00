@@ -1,6 +1,6 @@
 #include "Model/Vector.hpp"
-#include "Model/Enemy.hpp"
-#include "Model/Spaceship.hpp"
+#include "Model/MovingObject/Enemy.hpp"
+#include "Model/MovingObject/Spaceship.hpp"
 #include "Model/Object.hpp"
 #include "Model/ObjectList.hpp"
 #include <iostream>
