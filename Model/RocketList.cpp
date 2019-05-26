@@ -25,27 +25,39 @@ RocketList &       RocketList::operator=(RocketList const & rhs) {
     return *this;
 }
 
-bool    RocketList::moveAll(ObjectList *enemyList) {
+bool    RocketList::hit(Object *elem, ObjectList *enemyList ){
     Object *tmp;
+    tmp = enemyList->getFirst();
+    while (tmp != NULL) {
+
+        if (elem->getElem()->collision(*(tmp->getElem()))) {
+            enemyList->remove(tmp->getElem());
+            this->remove(elem->getElem());
+            return false;
+        }
+        tmp = tmp->getNext();
+    }
+    
+    return true;
+}
+
+bool    RocketList::moveAll(ObjectList *enemyList) {
+    
     Object *elem;
 
-    tmp = enemyList->getFirst();
+    
     elem = this->_first;
         
     while(elem != NULL)
     {
+
+        if(!this->hit(elem, enemyList))
+            return false;
         elem->getElem()->setMovementVector(Vector(0, -1));
         elem->getElem()->move();
 
-         while (tmp != NULL) {
-
-            if (elem->getElem()->collision(*(tmp->getElem()))) {
-                enemyList->remove(tmp->getElem());
-                this->remove(elem->getElem());
-                return false;
-            }
-            tmp = tmp->getNext();
-        }
+        if(!this->hit(elem, enemyList))
+            return false;
         elem = elem->getNext();
     }
     return true;
