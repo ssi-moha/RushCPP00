@@ -1,23 +1,39 @@
-#include "Model/Vector.hpp"
-#include "Model/MovingObject/Enemy.hpp"
-#include "Model/MovingObject/Spaceship.hpp"
-#include "Model/Object.hpp"
-#include "Model/ObjectList.hpp"
+#include <ncurses.h>
 #include <iostream>
+#include "Model/Enemy.hpp"
+#include "Model/Render.hpp"
+#include "Model/Player.hpp"
+#include "Model/Spaceship.hpp"
+#include "Model/ObjectList.hpp"
+int kbhit(void)
+{
+    int ch = getch();
 
-void    print(AMovingObject *elem) {
-    std::cout << *elem << std::endl;
+    if (ch != ERR) {
+        ungetch(ch);
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
-int main(void) {
-    Spaceship *a = new Spaceship(7, 9);
-    Enemy *b = new Enemy(15, 10);
-    ObjectList list;
+int main(void)
+{
+    initscr();
 
-    list.add(a);
-    list.add(b);
-    
-    list.forEach(&print);
+    cbreak();
+    noecho();
+    nodelay(stdscr, TRUE);
 
-    return 0;
+    scrollok(stdscr, TRUE);
+    while (1) {
+        if (kbhit()) {
+            printw("Key pressed! It was: %d\n", getch());
+            refresh();
+        } else {
+            printw("No key pressed yet...\n");
+            refresh();
+            napms(100);
+        }
+    }
 }

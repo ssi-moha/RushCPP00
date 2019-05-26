@@ -7,7 +7,6 @@ FLAG	=	-Wall -Wextra -Werror -lncurses
 NAME    =	R-Type
 
 SRC     =   main.cpp						\
-			Controller/Game.cpp				\
 			Model/MovingObject/AMovingObject.cpp 		\
 			Model/MovingObject/Enemy.cpp         		\
 			Model/Object.cpp        		\
@@ -20,7 +19,6 @@ SRC     =   main.cpp						\
             
 OBJ     =	$(patsubst srcs/%.cpp,obj/%.o,$(SRC))
 
-INCLUDE	=	Controller/Game.hpp				\
 			Model/MovingObject/AMovingObject.hpp			\
 			Model/MovingObject/Enemy.hpp         		\
 			Model/Object.hpp        		\
