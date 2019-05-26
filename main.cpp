@@ -3,7 +3,7 @@
 #include "Model/MovingObject/Enemy.hpp"
 #include "Vue/Render.hpp"
 #include "Model/Player.hpp"
-#include "Model/Spaceship.hpp"
+#include "Model/MovingObject/Spaceship.hpp"
 #include "Model/ObjectList.hpp"
 
 #define UP 119

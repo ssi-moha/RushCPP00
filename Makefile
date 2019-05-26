@@ -19,7 +19,7 @@ SRC     =   main.cpp						\
             
 OBJ     =	$(patsubst srcs/%.cpp,obj/%.o,$(SRC))
 
-			Model/MovingObject/AMovingObject.hpp			\
+INCLUDE =	Model/MovingObject/AMovingObject.hpp			\
 			Model/MovingObject/Enemy.hpp         		\
 			Model/Object.hpp        		\
 			Model/ObjectList.hpp    		\
