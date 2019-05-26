@@ -5,6 +5,7 @@
 #include "Model/Player.hpp"
 #include "Model/MovingObject/Spaceship.hpp"
 #include "Model/ObjectList.hpp"
+#include "Model/RocketList.hpp"
 
 #define UP 119
 #define DOWN 115
@@ -13,6 +14,8 @@
 #define WIDTH 150
 #define HEIGHT 50
 #define SPACE 32
+#define WIDTH 150
+#define HEIGHT 50
 
 
 int     randomspown() {
@@ -74,7 +77,8 @@ int main()
     Player player("roger");
     Render render;
     Vector move;
-    ObjectList movingthing;
+    ObjectList enemyList;
+    RocketList rocketList;
     Spaceship spaceship(WIDTH / 2, HEIGHT - 2);
     while(1)
     {
@@ -82,25 +86,26 @@ int main()
         {   
             move = getInputMove(getch());
             if (move.getAbsciss() == SPACE) {
-                spaceship.shoot(&movingthing);
+                spaceship.shoot(&rocketList);
             } else {
                 spaceship.setMovementVector(move);
             }
             getch();
         }
         erase();
-        movingthing.add(new Enemy(randomspown(), 0));
-        movingthing.add(&spaceship);
+        enemyList.add(new Enemy(randomspown(), 0));
+        enemyList.add(&spaceship);
 
         napms(100);
-        movingthing.moveAll();
-        spaceship.move();
-        movingthing.displayAll(render);
+        rocketList.moveAll(&enemyList);
+        if (!enemyList.moveAll(spaceship)) {
+            break;
+        }
         
+        enemyList.displayAll(render);
+        rocketList.displayAll(render);
         
         refresh();
     }
-    return 0;
-    
     endwin();
 }

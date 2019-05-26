@@ -32,6 +32,9 @@ bool	Vector::operator==(Vector const & rhs) {
 Vector	    Vector::operator+(Vector const & rhs) {
     return Vector(_x + rhs.getAbsciss(), _y + rhs.getOrdinate());
 }
+Vector	    Vector::operator-(Vector const & rhs) {
+    return Vector(_x - rhs.getAbsciss(), _y - rhs.getOrdinate());
+}
 
 int	    Vector::getAbsciss(void) const {
     return this->_x;

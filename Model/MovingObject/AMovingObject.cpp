@@ -53,12 +53,29 @@ bool	AMovingObject::move(void) {
     return true;
 }
 
+bool	AMovingObject::isOut(void) const{
+    
+    return  this->getPosition().getOrdinate() > HEIGHT || this->getPosition().getOrdinate() < 0 ||
+            this->getPosition().getAbsciss() > WIDTH || this->getPosition().getAbsciss() < 0 ? true : false;
+}
+
 Vector	AMovingObject::getPosition(void) const {
     return this->_position;
 }
 
 void	AMovingObject::setMovementVector(Vector const & movementVector) {
     this->_movementVector = movementVector;
+}
+
+bool	AMovingObject::collision(AMovingObject const & object) {
+    Vector vector(0, 1);
+    Vector vector2(0, 2);
+
+    return (
+            this->getPosition() == object.getPosition()
+            || this->getPosition() == (object.getPosition() + vector)
+            || this->getPosition() == (object.getPosition() + vector2)
+        );
 }
 
 std::ostream & operator<<(std::ostream & o, AMovingObject const & rhs) {

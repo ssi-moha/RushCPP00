@@ -4,8 +4,8 @@
 # include "../Vector.hpp"
 # include "../ObjectList.hpp"
 
-# define WIDTH 150
-# define HEIGHT 50
+#define WIDTH 150
+#define HEIGHT 50
 
 class AMovingObject {
 
@@ -14,7 +14,7 @@ public:
     AMovingObject( void );
     AMovingObject(int x, int y, std::string character);
     AMovingObject(AMovingObject const & src);
-    ~AMovingObject( void );
+    virtual ~AMovingObject( void );
 
     AMovingObject &     operator=(AMovingObject const & rhs);
     bool                operator==(AMovingObject const & rhs);
@@ -23,9 +23,11 @@ public:
     Vector                      getPosition( void ) const;
     std::string                 getCharacter( void ) const;
     void                        setMovementVector(Vector const & movementVector);
-    bool                        isOut(void);
-protected:
+    bool                        collision(AMovingObject const & enemy);
+    
+    bool                        isOut() const;                        
 
+protected:
     Vector          _position; 
     Vector          _movementVector;
     std::string     _character;            

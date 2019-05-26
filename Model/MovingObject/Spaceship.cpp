@@ -1,5 +1,6 @@
 #include "Spaceship.hpp"
 #include "Rocket.hpp"
+#include "../ObjectList.hpp"
 #include <iostream>
 
 Spaceship::Spaceship(void) {
@@ -22,8 +23,11 @@ bool	Spaceship::move(void) {
     if (this->_position == this->_position + this->_movementVector) {
         return false;
     }
-
     this->_position = this->_position + this->_movementVector;
+    if (this->isOut())
+    {
+        this->_position = this->_position - this->_movementVector;
+    }
     this->_movementVector = Vector(0, 0);
 
     return true;
