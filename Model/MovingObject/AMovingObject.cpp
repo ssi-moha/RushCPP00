@@ -1,6 +1,7 @@
 #include "AMovingObject.hpp" 
 #include <iostream>
 #include <sstream>
+#include <ncurses.h>
 
 AMovingObject::AMovingObject(void) {
 
@@ -63,12 +64,25 @@ void	AMovingObject::setMovementVector(Vector const & movementVector) {
 }
 
 bool	AMovingObject::collision(AMovingObject const & object) {
-    Vector vector(0, 1);
-
-    return (
-            this->getPosition() == object.getPosition()
-            //|| this->getPosition() == (object.getPosition() + vector)
+    Vector vector(1, 0);
+    
+    if (this->getCharacter() != "|" && this->getCharacter() != "V")
+    {
+        return (
+            (this->getPosition().getAbsciss() - 2 < object.getPosition().getAbsciss() &&
+            this->getPosition().getAbsciss() + 2 > object.getPosition().getAbsciss()) &&
+            this->getPosition().getOrdinate() == object.getPosition().getOrdinate()
         );
+    }
+    else
+    {
+        return (
+            this->getPosition() == object.getPosition()
+        );
+    }
+       
+        
+
 }
 
 std::ostream & operator<<(std::ostream & o, AMovingObject const & rhs) {

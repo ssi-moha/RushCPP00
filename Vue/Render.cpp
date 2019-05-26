@@ -19,7 +19,12 @@ void	Render::display(AMovingObject const & objectToDisplay) {
     Vector  printPosition(objectToDisplay.getPosition());
     
     mvprintw(printPosition.getOrdinate(), printPosition.getAbsciss(), objectToDisplay.getCharacter().c_str());
-    
+    if(objectToDisplay.getCharacter() == "A")
+    {
+        mvprintw(printPosition.getOrdinate() -1, printPosition.getAbsciss(), "Y");
+        mvprintw(printPosition.getOrdinate(), printPosition.getAbsciss() + 1, "^");
+        mvprintw(printPosition.getOrdinate(), printPosition.getAbsciss() - 1, "^");
+    }
 }
 
 void	Render::display(Player player) {
