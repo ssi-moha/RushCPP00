@@ -19,7 +19,8 @@ public:
     Vector                      getPosition( void ) const;
     std::string                 getCharacter( void ) const;
     void                        setMovementVector(Vector const & movementVector);
-
+    bool                        collision(AMovingObject const & enemy);
+    
 protected:
 
     Vector          _position; 

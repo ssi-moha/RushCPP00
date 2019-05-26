@@ -5,6 +5,7 @@
 #include "Model/Player.hpp"
 #include "Model/MovingObject/Spaceship.hpp"
 #include "Model/ObjectList.hpp"
+#include "Model/RocketList.hpp"
 
 #define UP 119
 #define DOWN 115
@@ -71,7 +72,8 @@ int main()
     Player player("roger");
     Render render;
     Vector move;
-    ObjectList movingthing;
+    ObjectList enemyList;
+    RocketList rocketList;
     Spaceship spaceship(110,50);
     while(1)
     {
@@ -80,21 +82,23 @@ int main()
         {   
             move = getInputMove(getch());
             if (move.getAbsciss() == SPACE) {
-                spaceship.shoot(&movingthing);
+                spaceship.shoot(&rocketList);
             } else {
                 spaceship.setMovementVector(move);
             }
             getch();
         }
         erase();
-        movingthing.add(new Enemy(randomspown(), 0));
-        movingthing.add(&spaceship);
+        enemyList.add(new Enemy(randomspown(), 0));
+        enemyList.add(&spaceship);
 
         napms(100);
-        movingthing.moveAll();
-    
-        movingthing.displayAll(render);
-        
+        if (!enemyList.moveAll(spaceship)) {
+            break;
+        }
+        rocketList.moveAll(&enemyList);
+        enemyList.displayAll(render);
+        rocketList.displayAll(render);
         
         refresh();
     }

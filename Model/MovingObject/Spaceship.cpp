@@ -1,5 +1,6 @@
 #include "Spaceship.hpp"
 #include "Rocket.hpp"
+#include "../ObjectList.hpp"
 #include <iostream>
 
 Spaceship::Spaceship(void) {

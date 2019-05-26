@@ -12,6 +12,7 @@ SRC     =   main.cpp						\
 			Model/MovingObject/Rocket.cpp         		\
 			Model/Object.cpp        		\
 			Model/ObjectList.cpp    		\
+			Model/RocketList.cpp    		\
 			Model/Player.cpp        		\
 			Vue/Render.cpp        		\
 			Model/Vector.cpp				\
@@ -25,6 +26,7 @@ INCLUDE =	Model/MovingObject/AMovingObject.hpp			\
 			Model/MovingObject/Rocket.hpp         		\
 			Model/Object.hpp        		\
 			Model/ObjectList.hpp    		\
+			Model/RocketList.hpp    		\
 			Model/Player.hpp        		\
 			Vue/Render.hpp        		\
 			Model/Vector.hpp				\

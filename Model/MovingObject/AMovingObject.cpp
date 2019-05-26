@@ -57,6 +57,11 @@ void	AMovingObject::setMovementVector(Vector const & movementVector) {
     this->_movementVector = movementVector;
 }
 
+bool	AMovingObject::collision(AMovingObject const & object) {
+    
+    return (this->getPosition() == object.getPosition());
+}
+
 std::ostream & operator<<(std::ostream & o, AMovingObject const & rhs) {
     o << rhs.getPosition() << "character: " << rhs.getCharacter();
     return o;

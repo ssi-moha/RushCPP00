@@ -21,6 +21,14 @@ ObjectList       &ObjectList::operator=(ObjectList const & rhs) {
     return *this;
 }
 
+Object *	ObjectList::getFirst(void) const {
+    return this->_first;
+}
+
+Object *	ObjectList::getActual(void) const {
+    return this->_actual;
+}
+
 void    ObjectList::add(AMovingObject *elem) {
      Object *newObj = new Object(elem, _first);
      
@@ -55,17 +63,18 @@ void    ObjectList::displayAll(Render render) {
     }
 }
 
-void    ObjectList::moveAll(void) {
+bool    ObjectList::moveAll(Spaceship spaceship) {
     this->_actual = this->_first;
 
     while(this->_actual != NULL)
     {
         if (!this->_actual->getElem()->getCharacter().compare("V")) {
             this->_actual->getElem()->setMovementVector(Vector(0, 1));
-        } else if (!this->_actual->getElem()->getCharacter().compare("|")) {
-            this->_actual->getElem()->setMovementVector(Vector(0, -1));
+            if (spaceship.collision(*(this->_actual->getElem())) == true)
+                return false;
         }
         this->_actual->getElem()->move();
         this->_actual = this->_actual->getNext();
     }
+    return true;
 }

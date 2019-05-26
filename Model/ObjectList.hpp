@@ -3,6 +3,7 @@
 
 # include "Object.hpp"
 # include "MovingObject/AMovingObject.hpp"
+# include "MovingObject/Spaceship.hpp"
 # include "../Vue/Render.hpp"
 
 
@@ -16,12 +17,14 @@ public:
 
     ObjectList &  operator=(ObjectList const & rhs);
 
-    void    remove(AMovingObject *rElem);
-    void    add(AMovingObject *elem);
-    void    displayAll(Render render);
-    void    moveAll( void );
+    void        remove(AMovingObject *rElem);
+    void        add(AMovingObject *elem);
+    void        displayAll(Render render);
+    bool        moveAll(Spaceship spaceship);
+    Object *    getFirst( void ) const;
+    Object *    getActual( void ) const;
 
-private:
+protected:
     Object   *_first;
     Object   *_actual;
 };
