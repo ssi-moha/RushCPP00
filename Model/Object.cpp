@@ -16,8 +16,11 @@ Object       &Object::operator=(Object const & rhs) {
     return *this;
 }
 
-Object  *Object::getNext() {
+Object  *Object::getNext() const {
     return this->_next;
+}
+void    Object::setNext(Object *next) {
+    this->_next = next;
 }
 
 AMovingObject  *Object::getElem() {

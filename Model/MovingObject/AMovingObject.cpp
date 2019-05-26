@@ -49,6 +49,12 @@ bool	AMovingObject::move(void) {
     return true;
 }
 
+bool	AMovingObject::isOut(void) const{
+    
+    return  this->getPosition().getOrdinate() > HEIGHT || this->getPosition().getOrdinate() < 0 ||
+            this->getPosition().getAbsciss() > WIDTH || this->getPosition().getAbsciss() < 0 ? true : false;
+}
+
 Vector	AMovingObject::getPosition(void) const {
     return this->_position;
 }
