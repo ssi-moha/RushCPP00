@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ncurses.h>
-#include "Model/Enemy.hpp"
-#include "Model/Render.hpp"
+#include "Model/MovingObject/Enemy.hpp"
+#include "Vue/Render.hpp"
 #include "Model/Player.hpp"
 #include "Controller/Game.hpp"
 

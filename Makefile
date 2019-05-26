@@ -8,27 +8,27 @@ NAME    =	R-Type
 
 SRC     =   main.cpp						\
 			Controller/Game.cpp				\
-			Model/AMovingObject.cpp 		\
-			Model/Enemy.cpp         		\
+			Model/MovingObject/AMovingObject.cpp 		\
+			Model/MovingObject/Enemy.cpp         		\
 			Model/Object.cpp        		\
 			Model/ObjectList.cpp    		\
 			Model/Player.cpp        		\
-			Model/Render.cpp        		\
+			Vue/Render.cpp        		\
 			Model/Vector.cpp				\
-			Model/Spaceship.cpp
+			Model/MovingObject/Spaceship.cpp
 
             
 OBJ     =	$(patsubst srcs/%.cpp,obj/%.o,$(SRC))
 
 INCLUDE	=	Controller/Game.hpp				\
-			Model/AMovingObject.hpp			\
-			Model/Enemy.hpp         		\
+			Model/MovingObject/AMovingObject.hpp			\
+			Model/MovingObject/Enemy.hpp         		\
 			Model/Object.hpp        		\
 			Model/ObjectList.hpp    		\
 			Model/Player.hpp        		\
-			Model/Render.hpp        		\
+			Vue/Render.hpp        		\
 			Model/Vector.hpp				\
-			Model/Spaceship.hpp
+			Model/MovingObject/Spaceship.hpp
 
 
 			

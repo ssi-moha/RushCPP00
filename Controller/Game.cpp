@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "Game.hpp"
-#include "../Model/Render.hpp"
-#include "../Model/Spaceship.hpp"
+#include "../Vue/Render.hpp"
+#include "../Model/MovingObject/Spaceship.hpp"
 #include <unistd.h>
 
 Game::Game(Player const & player) : _player(player) {
