@@ -2,6 +2,7 @@
 #include <ncurses.h>
 #include <unistd.h>
 #include "Model/MovingObject/Enemy.hpp"
+#include "Model/MovingObject/Meteor.hpp"
 #include "Vue/Render.hpp"
 #include "Model/Player.hpp"
 #include "Model/MovingObject/Spaceship.hpp"
@@ -71,7 +72,6 @@ int main()
     cbreak();
     noecho();
     nodelay(stdscr, TRUE);
-    //keypad();
 
     curs_set(0);
     scrollok(stdscr, TRUE);
@@ -80,6 +80,7 @@ int main()
     Render render;
     Vector move;
     ObjectList enemyList;
+    ObjectList meteorList;
     RocketList rocketList;
     Spaceship spaceship(WIDTH / 2, HEIGHT - 2);
     player.setLive(3);
@@ -97,18 +98,25 @@ int main()
             getch();
         }
         erase();
-        enemyList.add(new Enemy(randomspown(), 0));
-        //enemyList.add(&spaceship);
+        if ((rand() % 30) <= 1) {
+            meteorList.add(new Meteor(randomspown(), 0));
+        }
+        if ((rand() % 10) <= 1) {
+            enemyList.add(new Enemy(randomspown(), 0));
+        }
+        
+        
 
         usleep(100000);
         if (!rocketList.moveAll(&enemyList)) {
             player.setScore(player.getScore() + 5);
         }
-        if (!enemyList.moveAll(spaceship)) {
+        if (!enemyList.moveAll(spaceship) || !meteorList.moveAll(spaceship)) {
             player.setLive(player.getLive() - 1);
-            //mvprintw(HEIGHT / 2 + 2, WIDTH / 4 * 4 + 5, "roger");
         }
         render.display(spaceship);
+
+        meteorList.displayAll(render);
         enemyList.displayAll(render);
         rocketList.displayAll(render);
         mvprintw(HEIGHT / 2, WIDTH / 4 * 4 + 5, "Score: %d", player.getScore());

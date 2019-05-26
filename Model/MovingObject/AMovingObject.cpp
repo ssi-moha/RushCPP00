@@ -69,11 +69,11 @@ void    AMovingObject::setMovementVectorRand(AMovingObject spaceship) {
     
     if(spaceship.getPosition().getAbsciss() > this->getPosition().getAbsciss())
     {
-        if (i < 80)
+        if (i < 75)
         {
             this->_movementVector = Vector(0, 1);
         }
-        else if (i >= 80 && i < 95)
+        else if (i >= 75 && i < 95)
         {
             this->_movementVector = Vector(1, 1);
         }
@@ -84,11 +84,11 @@ void    AMovingObject::setMovementVectorRand(AMovingObject spaceship) {
     }
     else
     {
-        if (i < 80)
+        if (i < 75)
         {
             this->_movementVector = Vector(0, 1);
         }
-        else if (i >= 80 && i < 95)
+        else if (i >= 75 && i < 95)
         {
             this->_movementVector = Vector(-1, 1);
         }
