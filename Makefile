@@ -9,6 +9,7 @@ NAME    =	R-Type
 SRC     =   main.cpp						\
 			Model/MovingObject/AMovingObject.cpp 		\
 			Model/MovingObject/Enemy.cpp         		\
+			Model/MovingObject/Rocket.cpp         		\
 			Model/Object.cpp        		\
 			Model/ObjectList.cpp    		\
 			Model/Player.cpp        		\
@@ -21,6 +22,7 @@ OBJ     =	$(patsubst srcs/%.cpp,obj/%.o,$(SRC))
 
 INCLUDE =	Model/MovingObject/AMovingObject.hpp			\
 			Model/MovingObject/Enemy.hpp         		\
+			Model/MovingObject/Rocket.hpp         		\
 			Model/Object.hpp        		\
 			Model/ObjectList.hpp    		\
 			Model/Player.hpp        		\

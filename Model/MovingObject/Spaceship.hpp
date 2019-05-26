@@ -1,6 +1,7 @@
 #ifndef SPACESHIP_H
 # define SPACESHIP_H
 # include "AMovingObject.hpp"
+# include "../ObjectList.hpp"
 
 class Spaceship : public AMovingObject {
 
@@ -14,6 +15,7 @@ public:
     Spaceship &  operator=(Spaceship const & rhs);
 
     virtual bool        move(void);
+    void                shoot(ObjectList *list);
 
 private:
 
