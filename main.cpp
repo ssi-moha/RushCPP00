@@ -30,14 +30,13 @@ int kbhit(void)
 Vector  getInputMove(int ch) {
     Vector vector;
     
-    mvprintw(60, 110, "roger"); 
     switch(ch)
     {
         case UP  :
-            vector.setOrdinate(1);
+            vector.setOrdinate(-1);
         break;
         case DOWN : 
-            vector.setOrdinate(-1);
+            vector.setOrdinate(1);
         break;
         case LEFT : 
             vector.setAbsciss(-1);
@@ -72,13 +71,14 @@ int main()
     Spaceship spaceship(110,50);
     while(1)
     {
-        
+
         if (kbhit())
         {
-            mvprintw(60, 110, "roger"); 
-            mvprintw(61, 110, "Key pressed! It was: %d\n", getch());
-            //move = getInputMove(getch());
             
+            
+            move = getInputMove(getch());
+            spaceship.setMovementVector(move);
+            getch();
         }
         erase();
         movingthing.add(new Enemy(randomspown(), 0));
@@ -86,9 +86,10 @@ int main()
         movingthing.moveAll();
     
         movingthing.displayAll(render);
+        
         spaceship.move();
         render.display(spaceship);
-        mvprintw(63, 110, "x: %d      y: %d", spaceship.getPosition().getOrdinate(), spaceship.getPosition().getAbsciss());
+        
         
         refresh();
     }
