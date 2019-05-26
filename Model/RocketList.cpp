@@ -56,6 +56,7 @@ bool    RocketList::moveAll(ObjectList *enemyList) {
 
         if(!this->hit(elem, enemyList))
             return false;
+            
         elem->getElem()->setMovementVector(Vector(0, -1));
         elem->getElem()->move();
 
