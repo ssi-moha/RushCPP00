@@ -10,6 +10,7 @@
 #define DOWN 115
 #define LEFT 97
 #define RIGHT 100
+#define SPACE 32
 
 int     randomspown() {
     return rand() % 220;
@@ -44,6 +45,9 @@ Vector  getInputMove(int ch) {
         case RIGHT : 
             vector.setAbsciss(+1);
         break;
+        case SPACE : 
+            vector.setAbsciss(32);
+        break;
 
     }
     
@@ -73,22 +77,24 @@ int main()
     {
 
         if (kbhit())
-        {
-            
-            
+        {   
             move = getInputMove(getch());
-            spaceship.setMovementVector(move);
+            if (move.getAbsciss() == SPACE) {
+                mvprintw(10, 30, "space");
+                spaceship.shoot(&movingthing);
+            } else {
+                spaceship.setMovementVector(move);
+            }
             getch();
         }
         erase();
         movingthing.add(new Enemy(randomspown(), 0));
+        movingthing.add(&spaceship);
+
         napms(100);
         movingthing.moveAll();
     
         movingthing.displayAll(render);
-        
-        spaceship.move();
-        render.display(spaceship);
         
         
         refresh();

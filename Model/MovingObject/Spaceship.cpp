@@ -1,4 +1,5 @@
 #include "Spaceship.hpp"
+#include "Rocket.hpp"
 #include <iostream>
 
 Spaceship::Spaceship(void) {
@@ -32,4 +33,9 @@ Spaceship &	Spaceship::operator=(Spaceship const & rhs) {
     this->_position = rhs.getPosition();
 
     return *this;
+}
+
+void	Spaceship::shoot(ObjectList *list) {
+       
+       list->add(new Rocket(_position.getAbsciss(), _position.getOrdinate()));
 }

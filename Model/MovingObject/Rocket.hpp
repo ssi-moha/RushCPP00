@@ -2,7 +2,7 @@
 # define ROCKET_H
 # include "AMovingObject.hpp"
 
-class Rocket {
+class Rocket: public AMovingObject {
 
 public:
 

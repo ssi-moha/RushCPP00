@@ -1,10 +1,15 @@
 #include "ObjectList.hpp"
+#include <ncurses.h>
 
 ObjectList::ObjectList() : _first(NULL), _actual(NULL){
     
 }
 ObjectList::~ObjectList() {
     
+}
+
+ObjectList::ObjectList(ObjectList const & src) {
+    *this = src;
 }
 
 ObjectList       &ObjectList::operator=(ObjectList const & rhs) {
@@ -55,7 +60,12 @@ void    ObjectList::moveAll(void) {
 
     while(this->_actual != NULL)
     {
-        this->_actual->getElem()->setMovementVector(Vector(0, 1));
+        if (!this->_actual->getElem()->getCharacter().compare("V")) {
+            this->_actual->getElem()->setMovementVector(Vector(0, 1));
+        } else if (!this->_actual->getElem()->getCharacter().compare("|")) {
+            mvprintw(10, 30, "r");
+            this->_actual->getElem()->setMovementVector(Vector(0, -1));
+        }
         this->_actual->getElem()->move();
         this->_actual = this->_actual->getNext();
     }
