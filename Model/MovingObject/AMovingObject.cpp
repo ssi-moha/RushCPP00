@@ -39,6 +39,10 @@ std::string	AMovingObject::getCharacter(void) const {
     return this->_character;
 }
 
+bool	AMovingObject::isOut() {
+    return this->getPosition().getOrdinate() > HEIGHT - 10 ? true : false;
+}
+
 
 bool	AMovingObject::move(void) {
     if (this->_position == this->_position + this->_movementVector) {

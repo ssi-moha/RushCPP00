@@ -40,7 +40,6 @@ void    ObjectList::remove(AMovingObject *elem) {
         {
             delete _actual;
             _actual = temp;
-            break;
         }
     }
 }
@@ -66,6 +65,10 @@ void    ObjectList::moveAll(void) {
             this->_actual->getElem()->setMovementVector(Vector(0, -1));
         }
         this->_actual->getElem()->move();
+        if(this->_actual->getElem()->isOut())
+        {
+            //this->remove(this->_actual->getElem());
+        }
         this->_actual = this->_actual->getNext();
     }
 }

@@ -2,6 +2,10 @@
 # define AMOVINGOBJECT_H
 # include <sstream>
 # include "../Vector.hpp"
+# include "../ObjectList.hpp"
+
+# define WIDTH 150
+# define HEIGHT 50
 
 class AMovingObject {
 
@@ -19,7 +23,7 @@ public:
     Vector                      getPosition( void ) const;
     std::string                 getCharacter( void ) const;
     void                        setMovementVector(Vector const & movementVector);
-
+    bool                        isOut(void);
 protected:
 
     Vector          _position; 
