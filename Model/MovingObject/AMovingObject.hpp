@@ -2,6 +2,7 @@
 # define AMOVINGOBJECT_H
 # include <sstream>
 # include "../Vector.hpp"
+# include "../ObjectList.hpp"
 
 #define WIDTH 150
 #define HEIGHT 50

@@ -86,6 +86,10 @@ bool    ObjectList::moveAll(Spaceship spaceship) {
                 return false;
         }
         this->_actual->getElem()->move();
+        if(this->_actual->getElem()->isOut())
+        {
+            //this->remove(this->_actual->getElem());
+        }
         this->_actual = this->_actual->getNext();
     }
     return true;
