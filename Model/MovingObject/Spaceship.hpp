@@ -17,7 +17,6 @@ public:
 
     virtual bool        move(void);
     void                shoot(ObjectList *list);
-    
 
 private:
 

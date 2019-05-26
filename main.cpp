@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ncurses.h>
+#include <unistd.h>
 #include "Model/MovingObject/Enemy.hpp"
 #include "Vue/Render.hpp"
 #include "Model/Player.hpp"
@@ -81,7 +82,8 @@ int main()
     ObjectList enemyList;
     RocketList rocketList;
     Spaceship spaceship(WIDTH / 2, HEIGHT - 2);
-    while(1)
+    player.setLive(3);
+    while(player.getLive() > 0)
     {
         if (kbhit())
         {   
@@ -90,24 +92,27 @@ int main()
                 spaceship.shoot(&rocketList);
             } else {
                 spaceship.setMovementVector(move);
+                spaceship.move();
             }
             getch();
         }
         erase();
         enemyList.add(new Enemy(randomspown(), 0));
-        enemyList.add(&spaceship);
+        //enemyList.add(&spaceship);
 
-        napms(100);
+        usleep(100000);
         if (!rocketList.moveAll(&enemyList)) {
             player.setScore(player.getScore() + 5);
         }
         if (!enemyList.moveAll(spaceship)) {
-            break;
+            player.setLive(player.getLive() - 1);
+            //mvprintw(HEIGHT / 2 + 2, WIDTH / 4 * 4 + 5, "roger");
         }
-        
+        render.display(spaceship);
         enemyList.displayAll(render);
         rocketList.displayAll(render);
-        mvprintw(WIDTH / 4, HEIGHT / 2, "Name: %s\nScore: %d", player.getName().c_str(), player.getScore());
+        mvprintw(HEIGHT / 2, WIDTH / 4 * 4 + 5, "Score: %d", player.getScore());
+        mvprintw(HEIGHT / 2 + 1, WIDTH / 4 * 4 + 5, "live: %d", player.getLive());
         refresh();
     }
     endwin();

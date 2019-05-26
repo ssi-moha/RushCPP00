@@ -63,6 +63,42 @@ void	AMovingObject::setMovementVector(Vector const & movementVector) {
     this->_movementVector = movementVector;
 }
 
+void    AMovingObject::setMovementVectorRand(AMovingObject spaceship) {
+    
+    int i = rand() % 100;
+    
+    if(spaceship.getPosition().getAbsciss() > this->getPosition().getAbsciss())
+    {
+        if (i < 80)
+        {
+            this->_movementVector = Vector(0, 1);
+        }
+        else if (i >= 80 && i < 95)
+        {
+            this->_movementVector = Vector(1, 1);
+        }
+        else
+        {
+            this->_movementVector = Vector(-1 , 1);
+        }
+    }
+    else
+    {
+        if (i < 80)
+        {
+            this->_movementVector = Vector(0, 1);
+        }
+        else if (i >= 80 && i < 95)
+        {
+            this->_movementVector = Vector(-1, 1);
+        }
+        else
+        {
+            this->_movementVector = Vector(1 , 1);
+        }
+    }
+}
+
 bool	AMovingObject::collision(AMovingObject const & object) {
     Vector vector(1, 0);
     
