@@ -58,10 +58,7 @@ void    ObjectList::displayAll(Render render) {
         render.display(*(this->_actual->getElem()));
 
         
-        if (this->_actual->getElem()->isOut() && this->_actual->getElem()->getCharacter() == "V")
-        {     
-            this->remove(this->_actual->getElem());   
-        }
+        
         this->_actual = this->_actual->getNext();
         
     }
@@ -78,6 +75,10 @@ void    ObjectList::moveAll(void) {
             this->_actual->getElem()->setMovementVector(Vector(0, -1));
         }
         this->_actual->getElem()->move();
+        if (this->_actual->getElem()->isOut() && this->_actual->getElem()->getCharacter() != "A")
+        {     
+            this->remove(this->_actual->getElem());   
+        }
         this->_actual = this->_actual->getNext();
     }
 }

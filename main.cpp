@@ -89,7 +89,7 @@ int main()
             getch();
         }
         erase();
-        movingthing.add(new Enemy(randomspown(), 0));
+        movingthing.add(new Enemy(randomspown(), 5));
         movingthing.add(&spaceship);
 
         napms(100);
