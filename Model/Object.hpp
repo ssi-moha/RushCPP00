@@ -13,7 +13,8 @@ public:
 
     Object &  operator=(Object const & rhs);
 
-    Object  *getNext();
+    Object  *getNext()const;
+    void    setNext(Object *next);
     AMovingObject  *getElem();
 
 private:

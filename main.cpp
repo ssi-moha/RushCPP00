@@ -12,9 +12,11 @@
 #define LEFT 97
 #define RIGHT 100
 #define SPACE 32
+#define WIDTH 150
+#define HEIGHT 50
 
 int     randomspown() {
-    return rand() % 220;
+    return WIDTH / 2;
 }
 
 int kbhit(void)
@@ -74,7 +76,7 @@ int main()
     Vector move;
     ObjectList enemyList;
     RocketList rocketList;
-    Spaceship spaceship(110,50);
+    Spaceship spaceship(WIDTH / 2, HEIGHT - 2);
     while(1)
     {
 
@@ -93,16 +95,15 @@ int main()
         enemyList.add(&spaceship);
 
         napms(100);
+        rocketList.moveAll(&enemyList);
         if (!enemyList.moveAll(spaceship)) {
             break;
         }
-        rocketList.moveAll(&enemyList);
+        
         enemyList.displayAll(render);
         rocketList.displayAll(render);
         
         refresh();
     }
-    return 0;
-    
     endwin();
 }

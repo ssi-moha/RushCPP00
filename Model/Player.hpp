@@ -23,7 +23,7 @@ public:
 private:
     bool _alive;
     std::string _name;
-    //Spaceship
+    
 };
 
 #endif

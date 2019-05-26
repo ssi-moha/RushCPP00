@@ -38,7 +38,8 @@ bool    RocketList::moveAll(ObjectList *enemyList) {
          while (tmp != NULL) {
 
             if (elem->getElem()->collision(*(tmp->getElem()))) {
-                // remove elem
+                enemyList->remove(tmp->getElem());
+                this->remove(elem->getElem());
                 return false;
             }
             tmp = tmp->getNext();
