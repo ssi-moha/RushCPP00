@@ -3,6 +3,7 @@
 
 
 class AMovingObject;
+class Player;
 
 class Render {
 
@@ -15,6 +16,7 @@ public:
     Render &  operator=(Render const & rhs);
 
     void    display(AMovingObject const & objectToDisplay);
+    void    display(Player player);
 
 private:
 
