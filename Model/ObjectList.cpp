@@ -79,7 +79,7 @@ bool    ObjectList::moveAll(Spaceship spaceship) {
 
     while(this->_actual != NULL)
     {
-        if (!this->_actual->getElem()->getCharacter().compare("V")) {
+        if (!this->_actual->getElem()->getCharacter().compare("V") || !this->_actual->getElem()->getCharacter().compare("*")) {
             this->_actual->getElem()->setMovementVector(Vector(0, 1));
             if (spaceship.collision(*(this->_actual->getElem())) == true)
                 return false;

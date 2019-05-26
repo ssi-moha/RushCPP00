@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ncurses.h>
 #include "Model/MovingObject/Enemy.hpp"
+#include "Model/MovingObject/Meteor.hpp"
 #include "Vue/Render.hpp"
 #include "Model/Player.hpp"
 #include "Model/MovingObject/Spaceship.hpp"
@@ -94,10 +95,15 @@ int main()
             getch();
         }
         erase();
-        enemyList.add(new Enemy(randomspown(), 0));
+        if ((rand() % 10) >= 1) {
+            enemyList.add(new Enemy(randomspown(), 0));
+        } else {
+            enemyList.add(new Meteor(randomspown(), 0));
+        }
         enemyList.add(&spaceship);
 
         napms(100);
+        
         if (!rocketList.moveAll(&enemyList)) {
             player.setScore(player.getScore() + 5);
         }
